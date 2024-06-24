@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run deployment script
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          echo "${SSH_PRIVATE_KEY}" > private_key
+          chmod 600 private_key
+          rsync -avz -e "ssh -i private_key" --exclude '.git' --exclude '.gitignore' --exclude 'node_modules' ./ ${SSH_USER}@${SSH_HOST}:/path/to/project
+          ssh -i private_key ${SSH_USER}@${SSH_HOST} 'cd /path/to/project && git pull origin $(if [[ "${GITHUB_REF}" == "refs/heads/master" ]]; then echo "master"; else echo "develop"; fi) && npm run build'
