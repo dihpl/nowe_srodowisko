@@ -4,7 +4,6 @@ FROM php:7.4-apache
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
-    git \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
@@ -40,4 +39,4 @@ WORKDIR /var/www/html
 # Exclude files
 COPY .dockerignore /var/www/html/.dockerignore
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"
