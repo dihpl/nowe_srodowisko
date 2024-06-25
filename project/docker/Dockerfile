@@ -4,7 +4,6 @@ FROM php:7.4-apache
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
-    git \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
