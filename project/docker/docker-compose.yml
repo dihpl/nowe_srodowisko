@@ -40,6 +40,16 @@ services:
     networks:
       - ps_network
 
+  webpack:
+    image: node:14
+    container_name: webpack
+    working_dir: /app
+    volumes:
+      - ../public_html:/app
+    command: npm run build
+    networks:
+      - ps_network
+
 volumes:
   db_data:
 

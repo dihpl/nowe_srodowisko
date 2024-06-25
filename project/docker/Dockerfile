@@ -40,4 +40,4 @@ WORKDIR /var/www/html
 # Exclude files
 COPY .dockerignore /var/www/html/.dockerignore
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"

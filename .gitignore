@@ -1,7 +1,7 @@
 /*
 !/public_html
 !/docker
-!/,github
+!/.github
 !/.gitignore
 !/Makefile
 !/.vscode/sftp_example.json
@@ -20,7 +20,6 @@ npm-debug.log.*
 *.hot-update.json
 node_modules/
 
-# Cache
 /public_html/cache/*
 /public_html/.htaccess
 /public_html/*sitemap.xml
@@ -102,11 +101,7 @@ node_modules/
 !/public_html/var/session/.htaccess
 !/public_html/var/sessions/.gitkeep
 
-######################################
 # Operating Systems
-######################################
-
-# Created by https://www.gitignore.io/api/linux,osx,windows,sublimetext,phpstorm
 
 ### Linux ###
 *~
@@ -125,7 +120,6 @@ node_modules/
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
